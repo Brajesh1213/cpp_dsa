@@ -1,0 +1,65 @@
+#define DPSolver ios_base::sync_with_stdio(0), cin.tie(0), cout.tie(0)
+ ios_base::sync_with_stdio(0);
+    cin.tie(0);
+    cout.tie(0); 
+    
+
+    sort(survived.begin(), survived.end(), [](const Mystr &a, const Mystr &b) {
+            return a.idx < b.idx;  // Sort back by original index
+        });
+
+int64_t  ---important
+
+prime number check by Sieve of Eratosthenes
+
+int n;
+vector<bool> is_prime(n+1, true);
+is_prime[0] = is_prime[1] = false;
+for (int i = 2; i <= n; i++) {
+    if (is_prime[i] && (long long)i * i <= n) {
+        for (int j = i * i; j <= n; j += i)
+            is_prime[j] = false;
+    }
+}
+
+
+#include <bits/stdc++.h>
+#define vv vector<int>
+#define pp pair<int,int>
+#define vs vector<string>
+#define ums map<string,int>
+#define input(v,n) for(int i=0;i<n;i++)cin>>v[i]
+#define loop(a, n, incr) for (int a = 0; a < n; a+=incr) // Fixed increment
+#define vums vector<unordered_map<string,int>>
+#define v_p vector<pair<lli,lli>>
+#define s_a(v) sort(v.begin(),v.end());
+#define s_d(v)  sort(v.begin(),v.end(),greater<int>());
+#define ulta(v) reverse(v.begin(),v.end())
+#define queue queue<int>
+#define stack stack<int>
+#define print_map(mp) for(auto i:mp)cout<<i.first<<"->"<<i.second // Added semicolon
+#define dqu  deque<int>
+#define print(v) for(auto i : v) cout << i << " ";
+#define lli long long int
+#define ll long long
+#define li long int
+#define ld long double
+#define stc(n) static_cast<long long>(n)
+#define mod ((ll)(1e9+7))
+#define binaryone(n)  __builtin_popcountll(n)//Use __builtin_popcountll for long long
+using namespace std;
+
+modulo properties 
+(a+b)%m = (a%m+b%m)%m
+(a*b)%m=(a%m*b%m)%m
+
+#include <bits/stdc++.h>
+#include <ext/pb_ds/assoc_container.hpp>
+#include <ext/pb_ds/tree_policy.hpp>
+
+using namespace std;
+using namespace __gnu_pbds;
+
+// Define a custom ordered set with a pair (value, index)
+template <class T> 
+using onset = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;

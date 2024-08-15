@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Left Panel Example</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    #left-panel {
+      background-color: #f0f0f0;
+      width: 200px;
+      height: 100%;
+      float: left;
+      padding: 10px;
+    }
+
+    #content {
+      margin-left: 220px;
+      padding: 10px;
+    }
+
+    /* Hide all content divs by default */
+    .content-item {
+      display: none;
+    }
+
+    /* Show the selected content div */
+    .content-item.active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div id="left-panel">
+    <ul>
+      <li><a href="#" class="menu-item" data-target="home">Home</a></li>
+      <li><a href="#" class="menu-item" data-target="contact">Contact</a></li>
+      <li><a href="#" class="menu-item" data-target="information">Information</a></li>
+      <li><a href="#" class="menu-item" data-target="guide">Guide</a></li>
+    </ul>
+  </div>
+  <div id="content">
+    <div class="content-item" data-content="home">
+      <h2>Home Content</h2>
+      <p>Welcome to the Home page.</p>
+    </div>
+    <div class="content-item" data-content="contact">
+      <h2>Contact Content</h2>
+      <p>Contact information goes here.</p>
+    </div>
+    <div class="content-item" data-content="information">
+      <h2>Information Content</h2>
+      <p>Some useful information goes here.</p>
+    </div>
+    <div class="content-item" data-content="guide">
+      <h2>Guide Content</h2>
+      <p>Guidelines and instructions go here.</p>
+    </div>
+  </div>
+
+  <script>
+    const menuItems = document.querySelectorAll('.menu-item');
+    const contentItems = document.querySelectorAll('.content-item');
+
+    // Function to handle menu item click
+    function handleMenuItemClick(event) {
+      event.preventDefault();
+      const target = event.target.getAttribute('data-target');
+
+      // Show the corresponding content item and hide others
+      contentItems.forEach(item => {
+        if (item.getAttribute('data-content') === target) {
+          item.classList.add('active');
+        } else {
+          item.classList.remove('active');
+        }
+      });
+    }
+
+    // Attach click event listeners to menu items
+    menuItems.forEach(item => {
+      item.addEventListener('click', handleMenuItemClick);
+    });
+  </script>
+</body>
+</html>
